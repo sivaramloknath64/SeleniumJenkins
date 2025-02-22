@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+ triggers {
+        cron('H 21 * * *')  // Runs every day at 8:00 PM
+    }
+
     environment {
         DOCKER_COMPOSE_FILE = "docker-compose.yaml"
         GRID_URL = "http://localhost:4444/wd/hub"
